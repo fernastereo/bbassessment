@@ -18,7 +18,7 @@ class CreateSettlementsTable extends Migration
             $table->string('key');
             $table->string('name');
             $table->string('zone_type');
-            $table->string('settlementtype_id');
+            $table->unsignedBigInteger('settlementtype_id');
             $table->unsignedBigInteger('zipcode_id');
             $table->timestamps();
             $table->foreign('settlementtype_id')->references('id')->on('settlementtypes');
