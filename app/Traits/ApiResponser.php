@@ -19,13 +19,13 @@ trait ApiResponser
 
         $transformer = $instance->transformer;
 		$instance = $this->transformData($instance, $transformer);
-        return $instance;
-//        return $this->successResponse([$instance], $code);
+
+        return $this->successResponse([$instance], $code);
     }
 
     protected function transformData($data, $transformer){
         $transformation = new $transformer;
-        
-        return $transformation->transform($data);
+        return $data;
+//        return $transformation->transform($data);
     } 
 }
