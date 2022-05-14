@@ -10,7 +10,7 @@ class ZipcodeController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Zipcode  $zipcode
+     * @param  string  $zip_code
      * @return \Illuminate\Http\Response
      */
     public function show(string $zip_code)
