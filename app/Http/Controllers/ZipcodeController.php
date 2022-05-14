@@ -18,7 +18,6 @@ class ZipcodeController extends ApiController
         $zip = Zipcode::where('zip_code', $zip_code)
                 ->with(['municipality.federal_entity', 'municipality', 'settlements', 'settlements.settlementtype'])
                 ->firstOrFail();
-
-        return $this->showOne($zip);
+        return $zip;
     }
 }
