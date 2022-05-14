@@ -25,7 +25,7 @@ trait ApiResponser
 
     protected function transformData($data, $transformer){
         $transformation = new $transformer;
-        return $data;
-//        return $transformation->transform($data);
+        
+        return $transformation->transform($data);
     } 
 }
