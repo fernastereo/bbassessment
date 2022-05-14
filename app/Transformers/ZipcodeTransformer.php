@@ -45,7 +45,7 @@ class ZipcodeTransformer extends TransformerAbstract
         } catch (\Throwable $th) {
             report($th);
 
-            return [];
+            return ['error' => $th->getMessage()];
         }
     }
 }
