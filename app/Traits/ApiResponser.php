@@ -19,7 +19,8 @@ trait ApiResponser
 
         $transformer = $instance->transformer;
 		$instance = $this->transformData($instance, $transformer);
-        return $this->successResponse([$instance], $code);
+        return $instance;
+//        return $this->successResponse([$instance], $code);
     }
 
     protected function transformData($data, $transformer){
