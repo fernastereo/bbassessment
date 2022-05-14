@@ -5,7 +5,6 @@ namespace App\Transformers;
 use App\Models\Zipcode;
 use League\Fractal\TransformerAbstract;
 
-use function PHPUnit\Framework\isEmpty;
 
 class ZipcodeTransformer extends TransformerAbstract
 {    
@@ -34,7 +33,7 @@ class ZipcodeTransformer extends TransformerAbstract
                 'federal_entity' => [
                     'key' => (int)$zipcode->municipality->federal_entity->key,
                     'name' => (string)strtoupper($zipcode->municipality->federal_entity->name),
-                    'code' => isEmpty($zipcode->municipality->federal_entity->code) ? null : (string)$zipcode->municipality->federal_entity->code 
+                    'code' => $zipcode->municipality->federal_entity->code == '' ? null : (string)$zipcode->municipality->federal_entity->code 
                 ],
                 'settlements' => $settlements,
                 'municipality' => [
