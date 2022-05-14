@@ -3,16 +3,14 @@
 namespace App\Transformers;
 
 use App\Models\Zipcode;
+use App\Traits\ApiResponser;
 use League\Fractal\TransformerAbstract;
 
 
 class ZipcodeTransformer extends TransformerAbstract
 {    
-    /**
-     * A Fractal transformer.
-     *
-     * @return array
-     */
+    use ApiResponser;
+
     public function transform(Zipcode $zipcode)
     {
         try {
@@ -42,9 +40,7 @@ class ZipcodeTransformer extends TransformerAbstract
                 ]
             ];
         } catch (\Throwable $th) {
-            report($th);
-
-            return ['error' => $th->getMessage()];
+            return $this->errorResponse($th->getMessage(), 500);
         }
     }
 }
